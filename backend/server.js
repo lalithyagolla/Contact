@@ -7,7 +7,11 @@ const contactRoutes = require('./routes/contactRoutes');
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: 'contact-2qwl-lnvif8m6j-lalithyagollas-projects.vercel.app', // Replace with your exact frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
+}));
 app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.use('/api', contactRoutes);
